@@ -1,3 +1,13 @@
+IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = N'Aphrodite')
+BEGIN
+    PRINT 'Creating database [Aphrodite]...';
+    CREATE DATABASE [Aphrodite];
+END
+ELSE
+BEGIN
+    PRINT 'Database [Aphrodite] already exists.';
+END
+GO
 USE [Aphrodite]
 GO
 /****** Object:  Table [dbo].[Bookings]    Script Date: 1/10/2025 10:31:45 PM ******/
@@ -72,11 +82,11 @@ INSERT [dbo].[Bookings] ([Id], [FlightId], [PassengerName], [SeatNumber], [Booki
 GO
 INSERT [dbo].[Bookings] ([Id], [FlightId], [PassengerName], [SeatNumber], [BookingDate]) VALUES (N'9d18714a-86ee-4413-abec-98648b3f07c9', N'a5c5dc35-731a-4465-8d92-1eaa0501bdc5', N'Jane Smith', N'7B', CAST(N'2025-01-10T22:28:06.183' AS DateTime))
 GO
-INSERT [dbo].[Flights] ([Id], [FlightNumber], [Origin], [Destination], [DepartureTime], [ArrivalTime]) VALUES (N'a5c5dc35-731a-4465-8d92-1eaa0501bdc5', N'FL002', N'Chicago', N'Miami', CAST(N'2025-01-11T14:00:00.000' AS DateTime), CAST(N'2025-01-11T17:00:00.000' AS DateTime))
+INSERT [dbo].[Flights] ([Id], [FlightNumber], [Origin], [Destination], [DepartureDate], [ArrivalDate]) VALUES (N'a5c5dc35-731a-4465-8d92-1eaa0501bdc5', N'FL002', N'Chicago', N'Miami', CAST(N'2025-01-11T14:00:00.000' AS DateTime), CAST(N'2025-01-11T17:00:00.000' AS DateTime))
 GO
-INSERT [dbo].[Flights] ([Id], [FlightNumber], [Origin], [Destination], [DepartureTime], [ArrivalTime]) VALUES (N'c9a4fe61-96f6-4a01-a119-7da31f2bdc1c', N'FL001', N'New York', N'Los Angeles', CAST(N'2025-01-10T09:00:00.000' AS DateTime), CAST(N'2025-01-10T12:00:00.000' AS DateTime))
+INSERT [dbo].[Flights] ([Id], [FlightNumber], [Origin], [Destination], [DepartureDate], [ArrivalDate]) VALUES (N'c9a4fe61-96f6-4a01-a119-7da31f2bdc1c', N'FL001', N'New York', N'Los Angeles', CAST(N'2025-01-10T09:00:00.000' AS DateTime), CAST(N'2025-01-10T12:00:00.000' AS DateTime))
 GO
-INSERT [dbo].[Flights] ([Id], [FlightNumber], [Origin], [Destination], [DepartureTime], [ArrivalTime]) VALUES (N'985495d8-12bd-42fe-b07a-b1ea8f70346f', N'FL003', N'San Francisco', N'Houston', CAST(N'2025-01-12T06:00:00.000' AS DateTime), CAST(N'2025-01-12T10:00:00.000' AS DateTime))
+INSERT [dbo].[Flights] ([Id], [FlightNumber], [Origin], [Destination], [DepartureDate], [ArrivalDate]) VALUES (N'985495d8-12bd-42fe-b07a-b1ea8f70346f', N'FL003', N'San Francisco', N'Houston', CAST(N'2025-01-12T06:00:00.000' AS DateTime), CAST(N'2025-01-12T10:00:00.000' AS DateTime))
 GO
 INSERT [dbo].[Notifications] ([Id], [Recipient], [Message], [Type], [SentAt]) VALUES (N'f49c3819-0da3-4797-a45b-5de6b9bc079a', N'jane.smith@example.com', N'Your payment was successful!', N'SMS', CAST(N'2025-01-10T22:28:06.190' AS DateTime))
 GO
@@ -86,3 +96,5 @@ INSERT [dbo].[Payments] ([Id], [BookingId], [Amount], [PaymentDate]) VALUES (N'8
 GO
 INSERT [dbo].[Payments] ([Id], [BookingId], [Amount], [PaymentDate]) VALUES (N'd9d9c724-4e38-4e9b-b7b6-c8ef62d3dc44', N'9d18714a-86ee-4413-abec-98648b3f07c9', CAST(150.00 AS Decimal(18, 2)), CAST(N'2025-01-10T22:28:06.190' AS DateTime))
 GO
+
+/*docker exec -it sqlserver /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'the_Real@riginal01' -C -i /tmp/SchemaAndData.sql*/
