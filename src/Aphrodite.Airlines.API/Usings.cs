@@ -11,3 +11,6 @@ global using Aphrodite.Airlines.Application.Commands;
 global using Aphrodite.Airlines.Application.Queries;
 global using MediatR;
 global using Microsoft.AspNetCore.Mvc;
+global using Aphrodite.Airlines.Application.Consumers;
+global using Aphrodite.Airlines.Shared.Constants;
+global using MassTransit;

@@ -8,9 +8,11 @@
 
   <ItemGroup>
     <ProjectReference Include="../Aphrodite.Airlines.Domain/Aphrodite.Airlines.Domain.csproj" />
+    <ProjectReference Include="../Aphrodite.Airlines.Shared/Aphrodite.Airlines.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MassTransit.RabbitMQ" Version="8.5.5" />
     <PackageReference Include="MediatR" Version="13.1.0" />
   </ItemGroup>
 

@@ -1,6 +1,6 @@
 namespace Aphrodite.Airlines.Shared.Constants;
 
-public static class EventBusContants
+public static class EventBusConstants
 {
     public const string FlightBookedQueue = "flight-booked-queue";
     public const string PaymentProcessedQueue = "payment-processed-queue";

@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MassTransit.RabbitMQ" Version="8.5.5" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.14" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="6.1.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
@@ -16,6 +17,7 @@
     <ProjectReference Include="../Aphrodite.Airlines.Application/Aphrodite.Airlines.Application.csproj" />
     <ProjectReference Include="../Aphrodite.Airlines.Domain/Aphrodite.Airlines.Domain.csproj" />
     <ProjectReference Include="../Aphrodite.Airlines.Infra/Aphrodite.Airlines.Infra.csproj" />
+    <ProjectReference Include="../Aphrodite.Airlines.Shared/Aphrodite.Airlines.Shared.csproj" />
   </ItemGroup>
 
 </Project>

@@ -6,3 +6,5 @@ global using Aphrodite.Airlines.Application.Commands;
 global using Aphrodite.Airlines.Application.Services.Interfaces;
 global using Aphrodite.Airlines.Application.Services;
 global using Microsoft.Extensions.Logging;
+global using Aphrodite.Airlines.Shared.Events;
+global using MassTransit;
