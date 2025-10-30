@@ -1,0 +1,6 @@
+@Aphrodite.Airlines.API_HostAddress = http://localhost:5175
+
+GET {{Aphrodite.Airlines.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
