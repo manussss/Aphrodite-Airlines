@@ -36,5 +36,6 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.MapBookingEndpoints();
 app.MapFlightEndpoints();
+app.MapNotificationEndpoints();
 
 await app.RunAsync();
