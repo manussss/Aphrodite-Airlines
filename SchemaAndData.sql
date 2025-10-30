@@ -27,8 +27,8 @@ CREATE TABLE [dbo].[Flights](
 	[FlightNumber] [nvarchar](50) NULL,
 	[Origin] [nvarchar](50) NULL,
 	[Destination] [nvarchar](50) NULL,
-	[DepartureTime] [datetime] NULL,
-	[ArrivalTime] [datetime] NULL,
+	[DepartureDate] [datetime] NULL,
+	[ArrivalDate] [datetime] NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
