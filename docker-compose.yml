@@ -4,3 +4,24 @@ services:
     ports:
       - "5672:5672"
       - "15672:15672"
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver
+    environment:
+      SA_PASSWORD: "YourStrong!Passw0rd"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
+    volumes:
+      - ./SchemaAndData.sql:/docker-entrypoint-initdb.d/SchemaAndData.sql
+      - sql_data:/var/opt/mssql
+    command: >
+      /bin/bash -c "
+      /opt/mssql/bin/sqlservr &
+      sleep 20 &&
+      /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P 'YourStrong!Passw0rd' -d master -i /docker-entrypoint-initdb.d/SchemaAndData.sql &&
+      tail -f /dev/null
+      "
+
+volumes:
+  sql_data:
