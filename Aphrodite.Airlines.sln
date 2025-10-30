@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aphrodite.Airlines.Domain",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aphrodite.Airlines.Infra", "src\Aphrodite.Airlines.Infra\Aphrodite.Airlines.Infra.csproj", "{CFFA2913-9EE7-48B9-97AB-3AE62AC764B2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aphrodite.Airlines.Shared", "src\Aphrodite.Airlines.Shared\Aphrodite.Airlines.Shared.csproj", "{E2F58434-5E5A-4B22-B2FF-296C9214A703}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,11 +40,16 @@ Global
 		{CFFA2913-9EE7-48B9-97AB-3AE62AC764B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CFFA2913-9EE7-48B9-97AB-3AE62AC764B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CFFA2913-9EE7-48B9-97AB-3AE62AC764B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2F58434-5E5A-4B22-B2FF-296C9214A703}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2F58434-5E5A-4B22-B2FF-296C9214A703}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2F58434-5E5A-4B22-B2FF-296C9214A703}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2F58434-5E5A-4B22-B2FF-296C9214A703}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{CDF59AC2-B2A9-4761-8CF2-7B12943954A1} = {50B6CC86-70A4-46F6-BCFD-A9A8264B548A}
 		{9ABB9321-667C-43BA-92D4-227A7AAACF0F} = {50B6CC86-70A4-46F6-BCFD-A9A8264B548A}
 		{4A78D288-A777-468D-B87E-02C554D0DFA1} = {50B6CC86-70A4-46F6-BCFD-A9A8264B548A}
 		{CFFA2913-9EE7-48B9-97AB-3AE62AC764B2} = {50B6CC86-70A4-46F6-BCFD-A9A8264B548A}
+		{E2F58434-5E5A-4B22-B2FF-296C9214A703} = {50B6CC86-70A4-46F6-BCFD-A9A8264B548A}
 	EndGlobalSection
 EndGlobal
