@@ -12,4 +12,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="../Aphrodite.Airlines.Domain/Aphrodite.Airlines.Domain.csproj" />
+    <ProjectReference Include="../Aphrodite.Airlines.Infra/Aphrodite.Airlines.Infra.csproj" />
+  </ItemGroup>
+
 </Project>
