@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="../Aphrodite.Airlines.Application/Aphrodite.Airlines.Application.csproj" />
     <ProjectReference Include="../Aphrodite.Airlines.Domain/Aphrodite.Airlines.Domain.csproj" />
     <ProjectReference Include="../Aphrodite.Airlines.Infra/Aphrodite.Airlines.Infra.csproj" />
   </ItemGroup>
