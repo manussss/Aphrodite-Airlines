@@ -3,3 +3,6 @@ global using MediatR;
 global using Aphrodite.Airlines.Application.Queries;
 global using Aphrodite.Airlines.Domain.Interfaces;
 global using Aphrodite.Airlines.Application.Commands;
+global using Aphrodite.Airlines.Application.Services.Interfaces;
+global using Aphrodite.Airlines.Application.Services;
+global using Microsoft.Extensions.Logging;

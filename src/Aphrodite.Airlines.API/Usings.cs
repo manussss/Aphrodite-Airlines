@@ -4,3 +4,5 @@ global using Aphrodite.Airlines.Domain.Interfaces;
 global using Aphrodite.Airlines.Infra.Repositories;
 global using System.Reflection;
 global using Aphrodite.Airlines.Application.Handlers;
+global using Aphrodite.Airlines.Application.Services;
+global using Aphrodite.Airlines.Application.Services.Interfaces;

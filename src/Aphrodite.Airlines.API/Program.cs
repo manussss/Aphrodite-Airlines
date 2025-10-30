@@ -9,6 +9,7 @@ builder.Services.AddScoped<IBookingRepository, BookingRepository>();
 builder.Services.AddScoped<IFlightRepository, FlightRepository>();
 builder.Services.AddScoped<INotificationRepository, NotificationRepository>();
 builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
+builder.Services.AddScoped<INotificationService, NotificationService>();
 
 var assemblies = new Assembly[]
 {
@@ -18,6 +19,7 @@ var assemblies = new Assembly[]
     typeof(CreateFlightHandler).Assembly,
     typeof(DeleteFlightHandler).Assembly,
     typeof(GetAllFlightsHandler).Assembly,
+    typeof(SendNotificationHandler).Assembly,
 };
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(assemblies));
 
