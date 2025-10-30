@@ -37,5 +37,6 @@ app.UseHttpsRedirection();
 app.MapBookingEndpoints();
 app.MapFlightEndpoints();
 app.MapNotificationEndpoints();
+app.MapPaymentEndpoints();
 
 await app.RunAsync();
