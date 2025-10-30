@@ -14,7 +14,10 @@ var assemblies = new Assembly[]
 {
     Assembly.GetExecutingAssembly(),
     typeof(CreateBookingHandler).Assembly,
-    typeof(GetBookingHandler).Assembly
+    typeof(GetBookingHandler).Assembly,
+    typeof(CreateFlightHandler).Assembly,
+    typeof(DeleteFlightHandler).Assembly,
+    typeof(GetAllFlightsHandler).Assembly,
 };
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(assemblies));
 
