@@ -6,3 +6,8 @@ global using System.Reflection;
 global using Aphrodite.Airlines.Application.Handlers;
 global using Aphrodite.Airlines.Application.Services;
 global using Aphrodite.Airlines.Application.Services.Interfaces;
+global using Aphrodite.Airlines.API.Endpoints;
+global using Aphrodite.Airlines.Application.Commands;
+global using Aphrodite.Airlines.Application.Queries;
+global using MediatR;
+global using Microsoft.AspNetCore.Mvc;
