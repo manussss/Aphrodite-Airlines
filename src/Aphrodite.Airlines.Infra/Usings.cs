@@ -5,3 +5,5 @@ global using Dapper;
 global using MongoDB.Driver;
 global using Microsoft.Extensions.Configuration;
 global using Aphrodite.Airlines.Infra.Data;
+global using StackExchange.Redis;
+global using System.Text.Json;

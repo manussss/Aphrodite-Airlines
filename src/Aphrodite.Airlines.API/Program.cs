@@ -28,6 +28,10 @@ var assemblies = new Assembly[]
 };
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(assemblies));
 
+var redisConfiguration = builder.Configuration.GetConnectionString("Redis");
+var redis = ConnectionMultiplexer.Connect(redisConfiguration!);
+builder.Services.AddSingleton<IConnectionMultiplexer>(redis);
+
 builder.Services.AddMassTransit(config =>
 {
     config.AddConsumer<NotificationEventConsumer>();

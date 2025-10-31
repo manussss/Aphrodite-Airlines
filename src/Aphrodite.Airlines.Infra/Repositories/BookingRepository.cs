@@ -1,7 +1,13 @@
 namespace Aphrodite.Airlines.Infra.Repositories;
 
-public class BookingRepository(IDbConnection connection) : IBookingRepository
+public class BookingRepository(
+    IDbConnection connection,
+    IDatabase redisDatabase,
+    IConnectionMultiplexer connectionMultiplexer) : IBookingRepository
 {
+    private const string RedisKeyPrefix = "booking_";
+    private IDatabase redisDatabase { get; } = connectionMultiplexer.GetDatabase();
+
     public async Task AddAsync(Booking booking)
     {
         var sql = @"
@@ -10,6 +16,9 @@ public class BookingRepository(IDbConnection connection) : IBookingRepository
         ";
 
         await connection.ExecuteAsync(sql, booking);
+
+        var data = JsonSerializer.Serialize(booking);
+        await redisDatabase.StringSetAsync($"{RedisKeyPrefix}{booking.Id}", data);
     }
 
     public async Task<Booking?> GetByIdAsync(Guid id)
@@ -18,6 +27,11 @@ public class BookingRepository(IDbConnection connection) : IBookingRepository
             SELECT * FROM Bookings WHERE Id = @Id
         ";
 
-        return await connection.QuerySingleOrDefaultAsync(sql, new { Id = id });
+        var booking = await redisDatabase.StringGetAsync($"{RedisKeyPrefix}{id}");
+
+        if (string.IsNullOrEmpty(booking))
+            return await connection.QuerySingleOrDefaultAsync(sql, new { Id = id });
+
+        return JsonSerializer.Deserialize<Booking>(booking!);
     }
 }
