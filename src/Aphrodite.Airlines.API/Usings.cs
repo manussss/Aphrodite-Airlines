@@ -16,3 +16,4 @@ global using Aphrodite.Airlines.Shared.Constants;
 global using MassTransit;
 global using Aphrodite.Airlines.Infra.Data;
 global using StackExchange.Redis;
+global using Npgsql;

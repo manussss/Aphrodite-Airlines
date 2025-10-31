@@ -3,8 +3,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// builder.Services.AddScoped<IDbConnection>(sp =>
+//     new SqlConnection(builder.Configuration.GetConnectionString("SqlServer")));
+
 builder.Services.AddScoped<IDbConnection>(sp =>
-    new SqlConnection(builder.Configuration.GetConnectionString("SqlServer")));
+    new NpgsqlConnection(builder.Configuration.GetConnectionString("Postgres")));
 
 builder.Services.AddScoped<IAphroditeContext, AphroditeContext>();
 
