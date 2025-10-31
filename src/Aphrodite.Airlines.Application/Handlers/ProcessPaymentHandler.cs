@@ -1,7 +1,8 @@
 namespace Aphrodite.Airlines.Application.Handlers;
 
 public class ProcessPaymentHandler(
-    IPaymentRepository repository) : IRequestHandler<ProcessPaymentCommand, Guid>
+    IPaymentRepository repository,
+    IPublishEndpoint publishEndpoint) : IRequestHandler<ProcessPaymentCommand, Guid>
 {
     public async Task<Guid> Handle(ProcessPaymentCommand request, CancellationToken cancellationToken)
     {
@@ -14,6 +15,12 @@ public class ProcessPaymentHandler(
         };
 
         await repository.ProcessPaymentAsync(payment);
+
+        await publishEndpoint.Publish(new PaymentProcessedEvent(
+            payment.Id,
+            payment.BookingId,
+            payment.Amount,
+            payment.PaymentDate), cancellationToken);
 
         return payment.Id;
     }

@@ -28,13 +28,26 @@ builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(assemblies
 builder.Services.AddMassTransit(config =>
 {
     config.AddConsumer<NotificationEventConsumer>();
+    config.AddConsumer<PaymentProcessedEventConsumer>();
+    config.AddConsumer<FlightBookedEventConsumer>();
 
     config.UsingRabbitMq((context, cfg) =>
     {
         cfg.Host(builder.Configuration["EventBusSettings:HostAddress"]);
+
         cfg.ReceiveEndpoint(EventBusConstants.NotificationSentQueue, c =>
         {
             c.ConfigureConsumer<NotificationEventConsumer>(context);
+        });
+
+        cfg.ReceiveEndpoint(EventBusConstants.PaymentProcessedQueue, c =>
+        {
+            c.ConfigureConsumer<PaymentProcessedEventConsumer>(context);
+        });
+
+        cfg.ReceiveEndpoint(EventBusConstants.FlightBookedQueue, c =>
+        {
+            c.ConfigureConsumer<FlightBookedEventConsumer>(context);
         });
     });
 });
