@@ -1,7 +1,8 @@
 namespace Aphrodite.Airlines.Application.Handlers;
 
 public class CreateBookingHandler(
-    IBookingRepository repository) : IRequestHandler<CreateBookingCommand, Guid>
+    IBookingRepository repository,
+    IPublishEndpoint publishEndpoint) : IRequestHandler<CreateBookingCommand, Guid>
 {
     public async Task<Guid> Handle(CreateBookingCommand request, CancellationToken cancellationToken)
     {
@@ -15,6 +16,13 @@ public class CreateBookingHandler(
         };
 
         await repository.AddAsync(booking);
+
+        await publishEndpoint.Publish(new FlightBookedEvent(
+            booking.Id,
+            booking.FlightId,
+            booking.PassengerName,
+            booking.SeatNumber,
+            booking.BookingDate), cancellationToken);
 
         return booking.Id;
     }
